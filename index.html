@@ -1,312 +1,498 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subhan Mirza - Wash Tech</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
-    
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-    }
-    
-    .name-font {
-      font-family: 'Playfair Display', serif;
-    }
-
-    /* New Blue Theme */
-    .header-bg {
-      background: linear-gradient(135deg, #0f172a, #1e40af, #3b82f6);
-      box-shadow: 0 25px 70px -15px rgba(59, 130, 246, 0.6);
-    }
-
-    .resume-container {
-      max-width: 1200px;
-      margin: 40px auto;
-      background: white;
-      border-radius: 32px;
-      overflow: hidden;
-      box-shadow: 0 35px 90px -20px rgba(15, 23, 42, 0.25);
-      border: 1px solid #bfdbfe;
-    }
-
-    .section-title {
-      position: relative;
-      font-size: 1.45rem;
-      font-weight: 700;
-      color: #1e40af;
-      padding-bottom: 12px;
-      letter-spacing: -0.02em;
-    }
-    
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 70px;
-      height: 5px;
-      background: linear-gradient(to right, #3b82f6, #60a5fa);
-      border-radius: 9999px;
-    }
-
-    .job-card {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .job-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25);
-    }
-
-    .contact-item {
-      transition: all 0.3s ease;
-    }
-    
-    .contact-item:hover {
-      transform: translateX(10px);
-      color: #1e40af;
-    }
-
-    .skill-bar-container {
-      background: #e0f2fe;
-      height: 8px;
-      border-radius: 9999px;
-      overflow: hidden;
-    }
-    
-    .skill-bar {
-      height: 100%;
-      background: linear-gradient(90deg, #3b82f6, #60a5fa, #93c5fd);
-      border-radius: 9999px;
-      transition: width 1.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .glass {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(147, 197, 253, 0.4);
-    }
-
-    .bg-blue-light {
-      background: linear-gradient(to bottom, #f0f9ff, #ffffff);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subhan Mirza | Wash Tech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+       
+        :root {
+            --primary: #8B0000;
+            --primary-dark: #6b0000;
+            --sidebar-bg: linear-gradient(180deg, #f8f1eb 0%, #f4e9e0 100%);
+        }
+       
+        /* BLUE THEME */
+        .blue-theme {
+            --primary: #1E40AF;
+            --primary-dark: #1E3A8A;
+            --sidebar-bg: linear-gradient(180deg, #EFF6FF 0%, #DBEAFE 100%);
+        }
+       
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 300ms;
+        }
+       
+        .tailwind-ready {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+       
+        .header-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
+       
+        .resume-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0 25px 50px -12px rgb(30 64 175 / 0.25);
+        }
+       
+        .sidebar {
+            background: var(--sidebar-bg);
+        }
+       
+        .section-title {
+            position: relative;
+        }
+       
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary);
+            bottom: -6px;
+            left: 0;
+            border-radius: 9999px;
+        }
+       
+        .experience-card {
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+       
+        .experience-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgb(30 64 175 / 0.15);
+        }
+       
+        .photo-frame {
+            border: 8px solid var(--primary);
+            box-shadow: 0 0 0 10px #f0f9ff;
+        }
+       
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            .resume-container {
+                box-shadow: none;
+                max-width: none;
+            }
+            body {
+                background: white;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-sky-100 via-blue-100 to-indigo-100 min-h-screen py-8 md:py-16">
-
-  <div id="resume" class="resume-container mx-auto">
-    
-    <!-- Header -->
-    <div class="header-bg text-white px-8 md:px-14 py-16 flex flex-col md:flex-row items-center gap-10">
-      <div class="w-44 h-44 rounded-3xl overflow-hidden border-8 border-white/90 shadow-2xl flex-shrink-0 ring-4 ring-white/30">
-        <img src="sub.png" alt="Subhan Mirza" 
-             class="w-full h-full object-cover">
-      </div>
-      
-      <div class="flex-1 text-center md:text-left">
-        <h1 class="name-font text-6xl md:text-7xl font-bold tracking-tighter leading-none">SUBHAN MIRZA</h1>
-        <p class="text-3xl md:text-4xl mt-3 text-sky-200 font-medium">Wash Tech Specialist</p>
-        <p class="mt-4 text-sky-100 max-w-md mx-auto md:mx-0 text-lg">
-          Passionate about quality, innovation &amp; delivering exceptional garment washing solutions.
-        </p>
-      </div>
+<body class="tailwind-ready bg-slate-100 py-8">
+    <!-- Top Bar -->
+    <div class="max-w-[1200px] mx-auto px-6 mb-6 flex items-center justify-between">
+        <div class="flex items-center gap-x-3">
+            <div class="w-10 h-10 bg-[var(--primary)] rounded-2xl flex items-center justify-center text-white text-2xl shadow-inner">
+                👔
+            </div>
+            <div>
+                <h1 class="text-2xl font-semibold text-[var(--primary)]">Subhan Mirza</h1>
+                <p class="text-sm text-slate-600 -mt-1">Professional Resume • Wash Tech</p>
+            </div>
+        </div>
+       
+        <div class="flex items-center gap-x-4 no-print">
+            <!-- JS Powered Buttons -->
+            <button onclick="downloadPDF()"
+                    class="flex items-center gap-x-2 bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white px-6 py-3 rounded-2xl font-medium text-sm shadow-lg shadow-[var(--primary)]/30">
+                <i class="fa-solid fa-download"></i>
+                <span>Download as PDF</span>
+            </button>
+           
+            <button onclick="window.print()"
+                    class="flex items-center gap-x-2 border border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)]/5 px-6 py-3 rounded-2xl font-medium text-sm">
+                <i class="fa-solid fa-print"></i>
+                <span>Print Resume</span>
+            </button>
+           
+            <!-- Theme Toggle Button -->
+            <button onclick="toggleTheme()"
+                    class="w-11 h-11 flex items-center justify-center border border-slate-300 hover:border-[var(--primary)] rounded-2xl text-2xl bg-white shadow-sm">
+                <i id="theme-icon" class="fa-solid fa-palette"></i>
+            </button>
+           
+            <a href="https://linkedin.com/in/subhan-mirza-073354218" target="_blank"
+               class="flex items-center gap-x-2 text-[var(--primary)] hover:text-[var(--primary-dark)] font-medium">
+                <i class="fa-brands fa-linkedin text-2xl"></i>
+                <span class="text-sm">Connect on LinkedIn</span>
+            </a>
+        </div>
     </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-12">
-      
-      <!-- Left Sidebar -->
-      <div class="lg:col-span-5 bg-blue-light p-8 md:p-12 space-y-12">
-        
-        <!-- About Me -->
-        <div>
-          <h2 class="section-title">About Me</h2>
-          <p class="mt-6 text-slate-700 leading-relaxed text-[15.5px]">
-            Earnestly seeking a challenging position in a dynamic organization with the aim to contribute towards 
-            competency success by enhancing decent and competitive standards to excel consistently and meet the 
-            challenging expectations.
-          </p>
+   
+    <!-- Resume Content -->
+    <div class="resume-container mx-auto bg-white rounded-3xl overflow-hidden border border-slate-200">
+       
+        <!-- Header -->
+        <div id="header" class="bg-[var(--primary)] text-white px-12 py-8 flex items-center gap-8">
+            <!-- Photo -->
+            <div class="flex-shrink-0">
+                <div class="photo-frame w-40 h-40 rounded-3xl overflow-hidden ring-4 ring-white/30">
+                    <img src="sub.png"
+                         alt="Subhan Mirza"
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+           
+            <!-- Name & Title -->
+            <div class="flex-1">
+                <div class="flex items-baseline gap-x-4">
+                    <h1 class="header-font text-6xl font-bold tracking-tighter">SUBHAN MIRZA</h1>
+                </div>
+                <div class="flex items-center gap-x-3 mt-2">
+                    <div class="h-px w-12 bg-white/70"></div>
+                    <p class="text-3xl font-medium tracking-widest">WASH TECH</p>
+                    <div class="h-px flex-1 bg-white/30"></div>
+                </div>
+               
+                <!-- Quick Tags -->
+                <div class="flex gap-2 mt-6">
+                    <span onclick="copyToClipboard('mirzasubhan714@gmail.com')"
+                          class="inline-flex items-center gap-x-1.5 text-sm bg-white/20 hover:bg-white/30 px-4 py-1 rounded-3xl cursor-pointer transition-all">
+                        <i class="fa-solid fa-envelope"></i>
+                        mirzasubhan714@gmail.com
+                    </span>
+                    <span onclick="copyToClipboard('0340-2045347')"
+                          class="inline-flex items-center gap-x-1.5 text-sm bg-white/20 hover:bg-white/30 px-4 py-1 rounded-3xl cursor-pointer transition-all">
+                        <i class="fa-solid fa-phone"></i>
+                        0340-2045347
+                    </span>
+                    <span class="inline-flex items-center gap-x-1.5 text-sm bg-white/20 px-4 py-1 rounded-3xl">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Karachi, Pakistan
+                    </span>
+                </div>
+            </div>
+           
+            <!-- Right side header info -->
+            <div class="text-right text-sm leading-tight hidden lg:block">
+                <p class="opacity-80">Sector W-4, House B-11</p>
+                <p class="opacity-80">Gulshan-e-Maymar, Karachi</p>
+                <p class="mt-6 text-xs opacity-60">Available for immediate joining</p>
+            </div>
         </div>
-
-        <!-- Contact -->
-        <div>
-          <h2 class="section-title">Contact</h2>
-          <div class="mt-6 space-y-6 text-sm">
-            <div class="contact-item flex gap-4 items-start text-slate-700 hover:text-blue-700">
-              <i class="fa-solid fa-envelope mt-1 text-2xl text-blue-600 w-9"></i>
-              <div>mirzasubhan718@gmail.com</div>
+       
+        <div class="flex flex-col lg:flex-row">
+           
+            <!-- LEFT SIDEBAR -->
+            <div id="sidebar" class="sidebar lg:w-96 px-8 py-10 border-r border-slate-100">
+               
+                <!-- My Contact -->
+                <div class="mb-10">
+                    <h2 class="section-title text-[var(--primary)] text-xl font-semibold mb-5 flex items-center gap-x-2">
+                        <i class="fa-solid fa-address-card"></i>
+                        MY CONTACT
+                    </h2>
+                    <div class="space-y-4">
+                        <a href="mailto:mirzasubhan714@gmail.com" class="flex items-start gap-x-3 group">
+                            <i class="fa-solid fa-envelope mt-1 text-[var(--primary)]"></i>
+                            <div>
+                                <p class="font-medium group-hover:text-[var(--primary)]">mirzasubhan714@gmail.com</p>
+                                <p class="text-xs text-slate-500">Email</p>
+                            </div>
+                        </a>
+                        <a href="tel:03402045347" class="flex items-start gap-x-3 group">
+                            <i class="fa-solid fa-phone mt-1 text-[var(--primary)]"></i>
+                            <div>
+                                <p class="font-medium group-hover:text-[var(--primary)]">0340-2045347</p>
+                                <p class="text-xs text-slate-500">Phone / WhatsApp</p>
+                            </div>
+                        </a>
+                        <div class="flex items-start gap-x-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-[var(--primary)]"></i>
+                            <div>
+                                <p class="font-medium">Sector#W-4 House B-11,<br>Gulshan-e-Maymar Karachi</p>
+                                <p class="text-xs text-slate-500">Address</p>
+                            </div>
+                        </div>
+                        <a href="https://linkedin.com/in/subhan-mirza-073354218" target="_blank" class="flex items-start gap-x-3 group">
+                            <i class="fa-brands fa-linkedin mt-1 text-[var(--primary)]"></i>
+                            <div>
+                                <p class="font-medium group-hover:text-[var(--primary)]">linkedin.com/in/subhan-mirza-073354218</p>
+                                <p class="text-xs text-slate-500">LinkedIn</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+               
+                <!-- Interest, Soft Skills, Education, Languages -->
+                <div class="mb-10">
+                    <h2 class="section-title text-[var(--primary)] text-xl font-semibold mb-5 flex items-center gap-x-2">
+                        <i class="fa-solid fa-star"></i>
+                        INTEREST
+                    </h2>
+                    <ul class="space-y-3 text-slate-700">
+                        <li class="flex items-center gap-x-2"><span class="text-[var(--primary)] text-xl">•</span> Quality Assurance</li>
+                        <li class="flex items-center gap-x-2"><span class="text-[var(--primary)] text-xl">•</span> Quality Control</li>
+                        <li class="flex items-center gap-x-2"><span class="text-[var(--primary)] text-xl">•</span> R&amp;D</li>
+                        <li class="flex items-center gap-x-2"><span class="text-[var(--primary)] text-xl">•</span> New Development</li>
+                    </ul>
+                </div>
+               
+                <div class="mb-10">
+                    <h2 class="section-title text-[var(--primary)] text-xl font-semibold mb-5 flex items-center gap-x-2">
+                        <i class="fa-solid fa-handshake"></i>
+                        SOFT SKILL
+                    </h2>
+                    <ul class="space-y-3 text-slate-700">
+                        <li class="flex items-center gap-x-2"><span class="text-[var(--primary)] text-xl">•</span> Interpersonal skills</li>
+                        <li class="flex items-center gap-x-2"><span class="text-[var(--primary)] text-xl">•</span> Sustainable wash ice breaker</li>
+                        <li class="flex items-center gap-x-2"><span class="text-[var(--primary)] text-xl">•</span> Management</li>
+                        <li class="flex items-center gap-x-2"><span class="text-[var(--primary)] text-xl">•</span> Leadership</li>
+                        <li class="flex items-center gap-x-2"><span class="text-[var(--primary)] text-xl">•</span> E-Flow</li>
+                    </ul>
+                </div>
+               
+                <div class="mb-10">
+                    <h2 class="section-title text-[var(--primary)] text-xl font-semibold mb-5 flex items-center gap-x-2">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        EDUCATION BACKGROUND
+                    </h2>
+                    <div class="space-y-6 text-sm">
+                        <div>
+                            <p class="font-semibold">MATRICULATION</p>
+                            <p class="text-slate-500">Board of Secondary Education of Karachi</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold">INTERMEDIATE</p>
+                            <p class="text-slate-500">Board of Intermediate Education of Karachi</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold">BACHELOR'S</p>
+                            <p class="text-slate-500">BBA (Bachelor's in Business Administration)</p>
+                            <p class="text-slate-500 text-xs">from KASBIT University</p>
+                        </div>
+                    </div>
+                </div>
+               
+                <div>
+                    <h2 class="section-title text-[var(--primary)] text-xl font-semibold mb-5 flex items-center gap-x-2">
+                        <i class="fa-solid fa-language"></i>
+                        LANGUAGES
+                    </h2>
+                    <div class="flex items-center gap-x-8">
+                        <div class="flex items-center gap-x-3">
+                            <div class="w-8 h-8 bg-[var(--primary)] text-white rounded-2xl flex items-center justify-center text-xl">🇬🇧</div>
+                            <div>
+                                <p class="font-medium">English</p>
+                                <p class="text-xs text-slate-500">Fluent</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-x-3">
+                            <div class="w-8 h-8 bg-[var(--primary)] text-white rounded-2xl flex items-center justify-center text-xl">🇵🇰</div>
+                            <div>
+                                <p class="font-medium">Urdu</p>
+                                <p class="text-xs text-slate-500">Native</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="mt-auto pt-12 text-xs text-slate-400 text-center">
+                    Last updated: April 2026
+                </div>
             </div>
-            <div class="contact-item flex gap-4 items-start text-slate-700 hover:text-blue-700">
-              <i class="fa-solid fa-phone mt-1 text-2xl text-blue-600 w-9"></i>
-              <div>0340-2045347</div>
+           
+            <!-- MAIN CONTENT -->
+            <div class="flex-1 px-8 lg:px-12 py-10">
+               
+                <!-- About Me -->
+                <div class="mb-12">
+                    <h2 class="section-title text-[var(--primary)] text-2xl font-semibold mb-6">About Me</h2>
+                    <p class="text-slate-600 leading-relaxed text-[15.2px]">
+                        Earnestly seeking a challenging position in a dynamic organization with the aim to contribute towards
+                        organization success by enhancing decent and competency standards to excel consistently and meet the
+                        challenging expectations, constantly availing opportunities to learn and grow with higher potential
+                        to benefit the parent organization.
+                    </p>
+                </div>
+               
+                <!-- Professional Experience -->
+                <div>
+                    <h2 class="section-title text-[var(--primary)] text-2xl font-semibold mb-6 flex items-center justify-between">
+                        Professional Experience
+                        <span class="text-sm font-normal bg-[var(--primary)]/10 text-[var(--primary)] px-4 py-1 rounded-3xl">11+ Years</span>
+                    </h2>
+                   
+                    <div class="space-y-10">
+                        <!-- All experience cards remain the same but colors are dynamic via var(--primary) -->
+                        <div class="experience-card border-l-4 border-[var(--primary)] pl-6">
+                            <div class="flex justify-between items-baseline">
+                                <div>
+                                    <h3 class="font-semibold text-lg">Soorty Enterprises (R&amp;D Senior Sampleman)</h3>
+                                    <p class="text-[var(--primary)] font-medium">2015 – 2017</p>
+                                </div>
+                            </div>
+                            <ul class="mt-4 space-y-2 text-slate-600 text-[15px]">
+                                <li class="flex gap-x-2"><span class="text-[var(--primary)] font-bold">•</span> Use to see all wet and dry process which includes all types of washes gt samples Pp samples wash samples etc.</li>
+                                <li class="flex gap-x-2"><span class="text-[var(--primary)] font-bold">•</span> Use to maintain records of every wash recipe and comments from the merchant.</li>
+                            </ul>
+                        </div>
+                       
+                        <!-- Remaining experience cards (same pattern) -->
+                        <div class="experience-card border-l-4 border-[var(--primary)] pl-6">
+                            <div class="flex justify-between items-baseline">
+                                <div>
+                                    <h3 class="font-semibold text-lg">Siddiquisons Limited (PD Department Sample Maker)</h3>
+                                    <p class="text-[var(--primary)] font-medium">2017 – 2018</p>
+                                </div>
+                            </div>
+                            <ul class="mt-4 space-y-2 text-slate-600 text-[15px]">
+                                <li class="flex gap-x-2"><span class="text-[var(--primary)] font-bold">•</span> Use to make every new development as per comments either from brands side or new from fabric perspective.</li>
+                            </ul>
+                        </div>
+                       
+                        <div class="experience-card border-l-4 border-[var(--primary)] pl-6">
+                            <div class="flex justify-between items-baseline">
+                                <div>
+                                    <h3 class="font-semibold text-lg">Denim Clothing Company (Supervisor Pre-production Department) H&amp;M and C&amp;A</h3>
+                                    <p class="text-[var(--primary)] font-medium">2018 - 2019</p>
+                                </div>
+                            </div>
+                            <ul class="mt-4 space-y-2 text-slate-600 text-[15px]">
+                                <li class="flex gap-x-2"><span class="text-[var(--primary)] font-bold">•</span> Carefully carrying out the header blanket, RFC size set and first lot.</li>
+                            </ul>
+                        </div>
+                       
+                        <div class="experience-card border-l-4 border-[var(--primary)] pl-6">
+                            <div class="flex justify-between items-baseline">
+                                <div>
+                                    <h3 class="font-semibold text-lg">Raiby Industries (Handling Pre-production Department) Washing 03</h3>
+                                    <p class="text-[var(--primary)] font-medium">2019 – 2021</p>
+                                </div>
+                            </div>
+                            <ul class="mt-4 space-y-2 text-slate-600 text-[15px]">
+                                <li class="flex gap-x-2"><span class="text-[var(--primary)] font-bold">•</span> Use to make all the buyers of header blanket as per wash and making a category out of it as per shade and maintaining its records of every consignment by making a cards as a record of it.</li>
+                                <li class="flex gap-x-2"><span class="text-[var(--primary)] font-bold">•</span> Use to make RFC, size set pilot run and shade band.</li>
+                                <li class="flex gap-x-2"><span class="text-[var(--primary)] font-bold">•</span> Making a follow up with planning team as well as the marketing of every article.</li>
+                            </ul>
+                        </div>
+                       
+                        <div class="experience-card border-l-4 border-[var(--primary)] pl-6">
+                            <div class="flex justify-between items-baseline">
+                                <div>
+                                    <h3 class="font-semibold text-lg">Artistic Garment International (Incharge PD Department US Division)</h3>
+                                    <p class="text-[var(--primary)] font-medium">2021 – 2023</p>
+                                </div>
+                            </div>
+                            <ul class="mt-4 space-y-2 text-slate-600 text-[15px]">
+                                <li class="flex gap-x-2"><span class="text-[var(--primary)] font-bold">•</span> Use to make all the gpt (garment protocols testing) of every brand.</li>
+                                <li class="flex gap-x-2"><span class="text-[var(--primary)] font-bold">•</span> Use to make PP samples, gt samples wash samples and sms samples.</li>
+                                <li class="flex gap-x-2"><span class="text-[var(--primary)] font-bold">•</span> Use to make new developments as per brand and mill perspective.</li>
+                            </ul>
+                        </div>
+                       
+                        <div class="experience-card border-l-4 border-[var(--primary)] pl-6">
+                            <div class="flex justify-between items-baseline">
+                                <div>
+                                    <h3 class="font-semibold text-lg">Assistant Manager Production</h3>
+                                    <p class="text-[var(--primary)] font-medium">2023 - Present</p>
+                                </div>
+                            </div>
+                            <ul class="mt-4 space-y-2 text-slate-600 text-[15px]">
+                                <li class="flex gap-x-2"><span class="text-[var(--primary)] font-bold">•</span> Use to carry all the washes as per shede band and their testing protocol prescribed by the brand with respect to their timeline.</li>
+                            </ul>
+                        </div>
+                       
+                        <div class="experience-card border-l-4 border-[var(--primary)] pl-6">
+                            <div class="flex justify-between items-baseline">
+                                <div>
+                                    <h3 class="font-semibold text-lg">Shafer Tex (Manager Technical Sales and Marketing)</h3>
+                                    <p class="text-[var(--primary)] font-medium">2024 – Present</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="contact-item flex gap-4 items-start text-slate-700 hover:text-blue-700">
-              <i class="fa-solid fa-location-dot mt-1 text-2xl text-blue-600 w-9"></i>
-              <div>Sector 4-W, Scheme B-1, Gulshan-e-Maymar, Karachi</div>
-            </div>
-            <div class="contact-item flex gap-4 items-start">
-              <i class="fa-brands fa-linkedin mt-1 text-2xl text-blue-600 w-9"></i>
-              <a href="https://www.linkedin.com/in/subhan-mirza-093e3518" target="_blank" 
-                 class="text-blue-700 hover:text-blue-800 hover:underline">linkedin.com/in/subhan-mirza</a>
-            </div>
-          </div>
         </div>
-
-        <!-- Interests -->
-        <div>
-          <h2 class="section-title">Interests</h2>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <span class="glass px-6 py-3 rounded-3xl text-sm font-medium text-blue-800 shadow-sm">Quality Assurance</span>
-            <span class="glass px-6 py-3 rounded-3xl text-sm font-medium text-blue-800 shadow-sm">Quality Control</span>
-            <span class="glass px-6 py-3 rounded-3xl text-sm font-medium text-blue-800 shadow-sm">R&amp;D</span>
-            <span class="glass px-6 py-3 rounded-3xl text-sm font-medium text-blue-800 shadow-sm">New Development</span>
-          </div>
-        </div>
-
-        <!-- Soft Skills -->
-        <div>
-          <h2 class="section-title">Soft Skills</h2>
-          <div class="mt-8 space-y-7">
-            <div>
-              <div class="flex justify-between text-sm mb-2">
-                <span class="font-medium text-slate-700">Interpersonal Skills</span>
-                <span class="text-blue-600 font-semibold">95%</span>
-              </div>
-              <div class="skill-bar-container"><div class="skill-bar w-[95%]"></div></div>
-            </div>
-            <div>
-              <div class="flex justify-between text-sm mb-2">
-                <span class="font-medium text-slate-700">Sustainable Thinking</span>
-                <span class="text-blue-600 font-semibold">88%</span>
-              </div>
-              <div class="skill-bar-container"><div class="skill-bar w-[88%]"></div></div>
-            </div>
-            <div>
-              <div class="flex justify-between text-sm mb-2">
-                <span class="font-medium text-slate-700">Management</span>
-                <span class="text-blue-600 font-semibold">85%</span>
-              </div>
-              <div class="skill-bar-container"><div class="skill-bar w-[85%]"></div></div>
-            </div>
-            <div>
-              <div class="flex justify-between text-sm mb-2">
-                <span class="font-medium text-slate-700">Leadership</span>
-                <span class="text-blue-600 font-semibold">82%</span>
-              </div>
-              <div class="skill-bar-container"><div class="skill-bar w-[82%]"></div></div>
-            </div>
-            <div>
-              <div class="flex justify-between text-sm mb-2">
-                <span class="font-medium text-slate-700">Time Management</span>
-                <span class="text-blue-600 font-semibold">97%</span>
-              </div>
-              <div class="skill-bar-container"><div class="skill-bar w-[97%]"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Education -->
-        <div>
-          <h2 class="section-title">Education</h2>
-          <div class="mt-6 space-y-7 text-sm">
-            <div class="border-l-4 border-blue-500 pl-5">
-              <p class="font-semibold text-blue-800">MATRICULATION</p>
-              <p class="text-slate-600">Board of Secondary Education Karachi • 2014</p>
-            </div>
-            <div class="border-l-4 border-blue-500 pl-5">
-              <p class="font-semibold text-blue-800">INTERMEDIATE</p>
-              <p class="text-slate-600">Board of Intermediate Education Karachi • 2016</p>
-            </div>
-            <div class="border-l-4 border-blue-500 pl-5">
-              <p class="font-semibold text-blue-800">BACHELOR'S</p>
-              <p class="text-blue-700">BBA (Business Administration)</p>
-              <p class="text-slate-600">KASBIT University • 2022 - 2026</p>
-            </div>
-            <div class="border-l-4 border-blue-500 pl-5">
-              <p class="font-semibold text-blue-800">Languages</p>
-              <p class="text-slate-700">English, Urdu (Fluent)</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Side - Experience -->
-      <div class="lg:col-span-7 p-8 md:p-12 bg-white">
-        <h2 class="section-title text-3xl mb-10">Professional Experience</h2>
-        
-        <div class="space-y-12">
-          <div class="job-card border-l-4 border-blue-500 pl-7">
-            <p class="font-semibold text-xl">Soorty Enterprises (R&amp;D Senior Sampleman)</p>
-            <p class="text-blue-600 text-sm mt-1">2015 - 2017</p>
-            <ul class="mt-5 list-disc pl-5 text-slate-700 space-y-2 text-[15.2px]">
-              <li>Cut all wet and dry processes including various wash types on PP samples</li>
-              <li>Provided detailed remarks and comments on every sample wash</li>
-            </ul>
-          </div>
-
-          <div class="job-card border-l-4 border-blue-500 pl-7">
-            <p class="font-semibold text-xl">Siddique Sons Limited (PP Department Sample Maker)</p>
-            <p class="text-blue-600 text-sm mt-1">2017 - 2018</p>
-            <ul class="mt-5 list-disc pl-5 text-slate-700 space-y-2 text-[15.2px]">
-              <li>Developed new samples as per comments from factory and fabric supervisor</li>
-            </ul>
-          </div>
-
-          <div class="job-card border-l-4 border-blue-500 pl-7">
-            <p class="font-semibold text-xl">Denim Clothing Company (Supervisor - Pre-production H&amp;M &amp; C&amp;A)</p>
-            <p class="text-blue-600 text-sm mt-1">2018 - 2019</p>
-          </div>
-
-          <div class="job-card border-l-4 border-blue-500 pl-7">
-            <p class="font-semibold text-xl">Rahby Industries (Pre-production Washing Department)</p>
-            <p class="text-blue-600 text-sm mt-1">2019 - 2021</p>
-            <ul class="mt-5 list-disc pl-5 text-slate-700 space-y-2 text-[15.2px]">
-              <li>Handled header market buyers as per swatch and shade categorization</li>
-              <li>Prepared PP samples, size sets, pilot runs, and shade bands</li>
-            </ul>
-          </div>
-
-          <div class="job-card border-l-4 border-blue-500 pl-7">
-            <p class="font-semibold text-xl">Artistic Garment International (Incharge PP Department - US Polo)</p>
-            <p class="text-blue-600 text-sm mt-1">2021 - 2023</p>
-            <ul class="mt-5 list-disc pl-5 text-slate-700 space-y-2 text-[15.2px]">
-              <li>Conducted garment protocol testing for every brand</li>
-              <li>Developed PP, art, cap, and SMS samples</li>
-              <li>Led new developments from brand and mill perspectives</li>
-            </ul>
-          </div>
-
-          <div class="job-card border-l-4 border-blue-500 pl-7">
-            <p class="font-semibold text-xl">Assistant Manager - Production</p>
-            <p class="text-blue-600 text-sm mt-1">2023 - Present</p>
-            <ul class="mt-5 list-disc pl-5 text-slate-700 space-y-2 text-[15.2px]">
-              <li>Managed all washes according to shade bands and brand testing protocols within timelines</li>
-            </ul>
-          </div>
-
-          <div class="job-card border-l-4 border-blue-500 pl-7 bg-blue-50/80 rounded-3xl p-7">
-            <p class="font-semibold text-xl">Manager Technical Sales and Marketing</p>
-            <p class="text-blue-700 mt-1">Shafer Tex</p>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-
-  <script>
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.skill-bar').forEach(bar => {
-        const width = bar.style.width;
-        bar.style.width = '0%';
-        setTimeout(() => {
-          bar.style.width = width;
-        }, 400);
-      });
-    });
-  </script>
+   
+    <!-- Footer -->
+    <div class="max-w-[1200px] mx-auto text-center text-xs text-slate-400 mt-8 px-6 no-print">
+        Built as interactive webpage version of Subhan Mirza's resume • HTML + Tailwind CSS + JavaScript
+        <span class="block mt-1">Made with ❤️ for Hashmi • Updated with new experience at Shafer Tex</span>
+    </div>
+   
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            const header = document.getElementById('header');
+            const sidebar = document.getElementById('sidebar');
+           
+            if (html.classList.contains('blue-theme')) {
+                html.classList.remove('blue-theme');
+                icon.classList.replace('fa-sun', 'fa-palette');
+                localStorage.setItem('theme', 'maroon');
+            } else {
+                html.classList.add('blue-theme');
+                icon.classList.replace('fa-palette', 'fa-sun');
+                localStorage.setItem('theme', 'blue');
+            }
+        }
+       
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.createElement('div');
+                toast.style.cssText = `position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:var(--primary); color:white; padding:12px 24px; border-radius:9999px; box-shadow:0 10px 15px -3px rgb(30 64 175); display:flex; align-items:center; gap:8px; z-index:9999;`;
+                toast.innerHTML = `
+                    <i class="fa-solid fa-check"></i>
+                    <span>Copied to clipboard!</span>
+                `;
+                document.body.appendChild(toast);
+               
+                setTimeout(() => {
+                    toast.style.transition = 'all 0.3s ease';
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translateX(-50%) translateY(10px)';
+                    setTimeout(() => toast.remove(), 300);
+                }, 2000);
+            });
+        }
+       
+        function downloadPDF() {
+            const resume = document.querySelector('.resume-container');
+            const originalShadow = resume.style.boxShadow;
+            resume.style.boxShadow = 'none';
+            resume.style.border = '1px solid #ddd';
+           
+            const printContents = resume.innerHTML;
+            const originalContents = document.body.innerHTML;
+           
+            document.body.innerHTML = `
+                <style>@page { size: A4; margin: 0; } body { margin: 0; padding: 0; }</style>
+                <div style="padding: 40px 50px; font-family: Inter, system-ui; max-width: 100%;">${printContents}</div>
+            `;
+           
+            window.print();
+           
+            setTimeout(() => {
+                document.body.innerHTML = originalContents;
+                console.log('%c✅ Resume PDF ready!', 'color:#1E40AF; font-size:13px;');
+            }, 100);
+        }
+       
+        window.onload = function() {
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'blue') {
+                document.documentElement.classList.add('blue-theme');
+                document.getElementById('theme-icon').classList.replace('fa-palette', 'fa-sun');
+            }
+           
+            console.log('%c🚀 Subhan Mirza Resume Loaded - Blue Theme Ready!', 'background:#1E40AF; color:white; padding:6px 10px; border-radius:6px; font-weight:bold');
+        };
+    </script>
 </body>
 </html>
